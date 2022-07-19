@@ -1,0 +1,79 @@
+﻿@{
+
+    Layout = "_AdminLayout";
+
+}
+
+@model KategoriOne
+@if (ViewBag.state == "update")
+{<form class="form-horizontal" asp-action="UstKategoriGuncelle" asp-controller="AdminUstKategori" enctype="multipart/form-data">
+        <div class="card-body">
+            <fieldset style="margin-bottom:50px">
+                <legend style="float:none">
+
+                   Üst Kategori Güncelle
+                </legend>
+
+
+                
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Ad</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Ad" type="text" placeholder="Ad giriniz">
+                        <span asp-validation-for="Ad" style="color:crimson"></span>
+                    </div>
+                </div>
+
+              
+
+
+
+            </fieldset>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class=" has-error has-feedback" asp-validation-summary="ModelOnly"></div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-info">Kaydet</button>
+            <button type="reset" class="btn btn-default float-right">Temizle</button>
+        </div>
+        <!-- /.card-footer -->
+    </form>
+}
+else
+{ <form class="form-horizontal" asp-action="UstKategoriEkle" asp-controller="AdminUstKategori" enctype="multipart/form-data">
+        <div class="card-body">
+            <fieldset style="margin-bottom:50px">
+                <legend style="float:none">
+
+                    Üst Kategori Ekle
+                </legend>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Ad</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="Ad" type="text" placeholder="Ad giriniz">
+                        <span asp-validation-for="Ad" style="color:crimson"></span>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class=" has-error has-feedback" asp-validation-summary="ModelOnly"></div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-info">Kaydet</button>
+            <button type="reset" class="btn btn-default float-right">Temizle</button>
+        </div>
+        <!-- /.card-footer -->
+    </form>
+}
+
+
+
+

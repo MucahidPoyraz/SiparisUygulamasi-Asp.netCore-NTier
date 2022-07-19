@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Urun
+
+    <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="icon-box">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <h4 class="modal-title w-100">Eklendi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center">İlk önce sepete ürün ekleyiniz</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-block" data-dismiss="modal">Tamam</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    @if (TempData["SepetBos"] != null)
+    {
+        <!--<div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="icon-box">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <h4 class="modal-title w-100"> @TempData["SepetBos"]</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center">İlk önce sepete ürün ekleyiniz</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-block" data-dismiss="modal">Tamam</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">-->
+    <!-- Button HTML (to Trigger Modal) -->
+    <!--<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
+    </div>-->
+
+}
+<!-- =====  BANNER STRAT  ===== -->
+<div class="breadcrumb">
+    <h1>Product Detail</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="category_page.html">Products</a></li>
+        <li class="active">Product Detail</li>
+    </ul>
+</div>
+<!-- =====  BREADCRUMB END===== -->
+<!-- =====  CONTAINER START  ===== -->
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div><a class="thumbnails"> <img data-name="product_image" src="/b001/images/product/product1.jpg" alt=""></a></div>
+
+                </div>
+                <div class="col-md-6 prodetail caption product-thumb">
+
+                    <span class="price mb_20"><span class="amount"><span class="currencySymbol">₺</span>@Model.Fiyat</span> </span>
+                    <hr>
+                    <ul class="list-unstyled product_info mtb_20">
+                        <li>
+                            <label>Ad:</label>
+                            <span> <a>@Model.Ad</a></span>
+                        </li>
+                        <li>
+                            <label>Ürün Kodu:</label>
+                            <span>@Model.UrunKod</span>
+                        </li>
+
+                    </ul>
+                    <hr>
+                    <p class="product-desc mtb_30"> @Model.Aciklama</p>
+                    <div class="form-group">
+                        <a asp-action="SepetEkle" asp-controller="Sepet" asp-route-id="@Model.ID" class="btn" onclick="Eklendi()" >
+
+                            Sepete Ekle
+
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- =====  CONTAINER END  ===== --> 

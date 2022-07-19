@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<İletisim>
+<div style="width:100%">
+    @*<a asp-action="İletisimListele" asp-controller="Adminİletisim" class="btn btn-primary">İletişim Ekle</a>*@
+</div>
+<br />
+@if (TempData["Ekleme"] != null)
+{
+
+    <div class="alert success" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Ekleme"]
+    </div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+    <div class="alert info" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Guncellendi"]
+    </div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+    <div class="alert warning" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Silindi"]
+    </div>
+}
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>İşlemler</th>
+            <th>Adres</th>
+            <th>Tel1</th>
+            <th>Tel2</th>
+            <th>Email1</th>
+            <th>Email2</th>
+            <th>Twitter</th>
+            <th>Instagram</th>
+            <th>Facebook</th>
+            <th>Youtube</th>
+            <th>WebSite</th>
+            <th>MapLink</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @*<a class="btn btn-danger" asp-action="İletisimSil" asp-controller="Adminİletisim" asp-route-id="@item.ID" onclick="return confirm('Are you sure you want to DELETE?');">Sil</a><br />*@
+                <a class="btn btn-info" asp-action="KullanciSil" asp-controller="Adminİletisim" asp-route-id="@item.ID">Guncelle</a><br />
+
+            </td>
+
+
+            <td>@item.Adres</td>
+            <td>@item.Tel1</td>
+            <td>@item.Tel2</td>
+            <td>@item.Adres</td>
+            <td>@item.Email1</td>
+            <td>@item.Email2</td>
+            <td>@item.Twitter</td>
+            <td>@item.Instagram</td>
+            <td>@item.Facebook</td>
+            <td>@item.Youtube</td>
+            <td>@item.WebSite</td>
+            <td>@item.MapLink</td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>

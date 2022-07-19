@@ -1,0 +1,180 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@model List<UrunSepet>
+
+<div class="breadcrumb">
+    <h1>Shopping Cart</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Shopping Cart</li>
+    </ul>
+</div>
+
+
+<!-- =====  BREADCRUMB END===== -->
+<!-- =====  CONTAINER START  ===== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 mb_xs-30">
+            <div class="cart-item-table commun-table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Product Name</th>
+                                <th>Adet</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                if (item.SepetId == @ViewBag.Kontrol)
+                                {
+
+
+                            <tr>
+                                <td>
+                                    <a>
+                                        <div class="product-image"><img alt="Streetwear" src="/b001/images/product/product1.jpg"></div>
+                                    </a>
+                                </td>
+                                <td><div class="product-title"> <a>@item.Urun.Ad</a> </div></td>
+                                <td>
+                                    <a  asp-action="SepetAzalt" asp-controller="Sepet" asp-route-id="@item.ID" class="btn btn-success btn-lg"><span>-</span></a>
+                                    <input value="@item.Adet" readonly type="text">
+                                    <a asp-action="SepetArttir" asp-controller="Sepet" asp-route-id="@item.ID" class="btn btn-danger btn-lg"><span>+</span></a>
+                                </td>
+
+
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <div class="base-price price-box"> <span class="price">₺ @(item.Adet* item.Urun.Fiyat)</span> </div>
+                                        </li>
+                                    </ul>
+                                </td>
+
+
+                                <td><a asp-action="SepetSil" asp-controller="Sepet" asp-route-id="@item.ID" onclick="Silindi()"><i title="Remove Item From Cart" data-id="100" class="fa fa-trash cart-remove-item"></i></a></td>
+                            </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <div class="estimate">
+                        <div class="heading-part mb_20">
+                            <h3 class="sub_title">indirim Kuponu Kullan</h3>
+                        </div>
+                        <form class="full">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input class="form-control mb_20" id="input-Gift" placeholder="İndirim kuponunu giriniz" value="" name="coupon" type="text">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="pull-left">
+                                        <input class="btn" data-loading-text="Loading..." id="button-Gift" value="Uygula" type="button">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="cart-total-table commun-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Sepet Tutarı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ürün Toplam</td>
+                                        <td><div class="price-box"> <span class="price">₺@ViewBag.Toplam</span> </div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>indirim Kodu</td>
+                                        <td><div class="price-box"> <span class="price">₺0.00</span> </div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Toplam</b></td>
+                                        <td><div class="price-box"> <span class="price"><b>₺@ViewBag.Toplam</b></span> </div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <hr>
+    <div class="mtb_30">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="estimate">
+                    <div class="heading-part mb_20">
+                        <h3 class="sub_title">Sipariş Tamamla</h3>
+                    </div>
+                    <form class="full" asp-action="SiparisEkle" asp-controller="Sepet" >
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-box mb_20">
+                                        <input class="form-control mb_20" name="Telefon" placeholder="Telefon numarsaı giriniz" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="input-box mb_20">
+                                        <input class="form-control mb_20" name="AdSoyad" placeholder="İsim Soyisim giriniz" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="input-box mb_20">
+                                        <input class="form-control mb_20" name="Email" placeholder="Email giriniz" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="input-box mb_20">
+
+                                        <input class="form-control mb_20" name="Adres" id="input-Gift" placeholder="Adres giriniz." required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mt_30">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="pull-right"><button class="btn btn-black" type="submit">Siparişi Tamamla </button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+
+</div>
+<!-- =====  CONTAINER END  ===== --> 

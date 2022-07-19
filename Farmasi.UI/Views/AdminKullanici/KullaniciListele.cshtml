@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<Kullanici>
+<div style="width:100%">
+    <a asp-action="KullaniciListele" asp-controller="AdminKullanici" class="btn btn-primary">Kullanci Ekle</a>
+</div>
+<br />
+@if (TempData["Ekleme"] != null)
+{
+
+    <div class="alert success" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Ekleme"]
+    </div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+    <div class="alert info" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Guncellendi"]
+    </div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+    <div class="alert warning" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Silindi"]
+    </div>
+}
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>İşlemler</th>
+            <th>Ad</th>
+            <th>Resim</th>
+            <th>Email</th>
+            <th>Parola</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-danger" asp-action="KullaniciSil" asp-controller="AdminKullanici" asp-route-id="@item.ID" onclick="return confirm('Are you sure you want to DELETE?');">Sil</a><br />
+                    <a class="btn btn-info" asp-action="KullanciSil" asp-controller="AdminKullanici" asp-route-id="@item.ID">Guncelle</a><br />
+
+                </td>
+
+
+                <td>@item.KullanıcıAdSoyad</td>
+                <td width="100" height="100" align="center"><img src="/images/@item.Resim" height="100" width="100"></td>
+                <td>@item.Email</td>
+                <td>@item.Parola</td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

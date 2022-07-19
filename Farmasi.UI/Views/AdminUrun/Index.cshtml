@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<KategoriOne>
+<div style="width:100%">
+    <a asp-action="CreateBlog" asp-controller="AdminBlog" class="btn btn-primary">Üst Kategori Ekle</a>
+    @*<a asp-action="ListBlogCategory" asp-controller="AdminBlogCategory" class="btn btn-secondary">Category List</a>*@
+</div>
+<br />
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>İşlemler</th>
+            <th>Detay</th>
+            <th>Kategori Adı</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a class="btn btn-danger" asp-action="DeleteBlog" asp-controller="AdminBlog" asp-route-id="@item.ID" onclick="return confirm('Are you sure you want to DELETE?');">Sil</a><br />
+                <a class="btn btn-info" asp-action="UpdateBlog" asp-controller="AdminBlog" asp-route-id="@item.ID">Guncelle</a><br />
+
+            </td>
+            <td>
+               
+                <a class="btn btn-info" asp-action="UpdateBlog" asp-controller="AdminBlog" asp-route-id="@item.ID">Detay</a><br />
+
+            </td>
+          
+            <td>@item.Ad</td>
+            
+        </tr>
+        }
+    </tbody>
+</table>

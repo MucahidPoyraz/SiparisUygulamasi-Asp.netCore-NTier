@@ -1,0 +1,2 @@
+# SiparisUygulaması-Asp.netCore-NTier
+ 

@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<SiparisUrun>
+<div style="width:100%">
+    @*<a asp-action="SeoEkle" asp-controller="AdminSeo" class="btn btn-primary">Seo Ekle</a>*@
+
+</div>
+<br />
+@if (TempData["Ekleme"] != null)
+{
+
+    <div class="alert success" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Ekleme"]
+    </div>
+}
+
+@if (TempData["Guncellendi"] != null)
+{
+
+    <div class="alert info" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Guncellendi"]
+    </div>
+}
+
+@if (TempData["Silindi"] != null)
+{
+
+    <div class="alert warning" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Silindi"]
+    </div>
+}
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Resim</th>
+            <th>Urun Ad</th>
+            <th>Urun kod</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td width="100" height="100" align="center"><img src="/images/@item.Urun.Resim" height="100" width="100"></td>
+
+            <td>@item.Urun.Ad</td>
+            <td>@item.Urun.UrunKod</td>
+            <td>@item.Urun.Fiyat</td>
+            <td>@item.Adet</td>
+
+
+
+        </tr>
+        }
+    </tbody>
+</table>

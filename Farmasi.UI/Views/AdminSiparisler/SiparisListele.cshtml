@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<Siparis>
+    <div style="width:100%">
+        @*<a asp-action="SeoEkle" asp-controller="AdminSeo" class="btn btn-primary">Seo Ekle</a>*@
+
+    </div>
+    <br />
+    @if (TempData["Ekleme"] != null)
+    {
+
+    <div class="alert success" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Ekleme"]
+    </div>
+    }
+
+    @if (TempData["Guncellendi"] != null)
+    {
+
+    <div class="alert info" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Guncellendi"]
+    </div>
+    }
+
+    @if (TempData["Silindi"] != null)
+    {
+
+    <div class="alert warning" id=mainAlertMessage>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @TempData["Silindi"]
+    </div>
+    }
+    <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>Detaylar</th>
+                <th>Durum</th>
+                <th>AdSoyad</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Adres</th>
+                <th>SesionId</th>
+                <th>Siparis Zamanı</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+               
+                <td><a class="btn btn-info" asp-action="SiparisDetay" asp-controller="AdminSiparisler" asp-route-id="@item.ID">Detaya git</a></td>
+                <td>
+                    @if (item.Durum == false)
+                    {
+                        <a class="btn btn-danger" asp-action="SiparisDurum" asp-controller="AdminSiparisler" asp-route-id="@item.ID" onclick="return confirm('Kargolandı Olarak İşaretlensin mi?');">Bekliyor</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-success" asp-action="SiparisDurum" asp-controller="AdminSiparisler" asp-route-id="@item.ID" onclick="return confirm('Bekliyor Olarak İşaretlensin mi?');">Kargolandı</a>
+                    }
+                </td>
+                <td>@item.AdSoyad</td>
+
+                <td>@item.Email</td>
+                <td>@item.Telefon</td>
+                <td>@item.Adres</td>
+                <td>@item.SesionId</td>
+
+                <td>@item.SiparisZamani</td>
+
+
+            </tr>
+            }
+        </tbody>
+    </table>

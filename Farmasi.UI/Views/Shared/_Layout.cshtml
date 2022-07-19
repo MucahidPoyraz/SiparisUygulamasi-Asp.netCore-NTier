@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <!-- =====  BASIC PAGE NEEDS  ===== -->
+    <meta charset="utf-8">
+    <title>@ViewBag.Seo.title</title>
+    <!-- =====  SEO MATE  ===== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="@ViewBag.Seo.description">
+    <meta name="keywords" content="@ViewBag.Seo.keywords">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="2 Days">
+    <meta name="robots" content="ALL">
+    <meta name="rating" content="8 YEARS">
+    <meta name="Language" content="en-us">
+    <meta name="GOOGLEBOT" content="NOARCHIVE">
+    <!-- =====  MOBILE SPECIFICATION  ===== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <!-- =====  CSS  ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    @*<style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .modal-confirm {
+            color: #636363;
+            width: 325px;
+            font-size: 14px;
+        }
+
+            .modal-confirm .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .modal-confirm .modal-header {
+                border-bottom: none;
+                position: relative;
+            }
+
+            .modal-confirm h4 {
+                text-align: center;
+                font-size: 26px;
+                margin: 30px 0 -15px;
+            }
+
+            .modal-confirm .form-control,
+            .modal-confirm .btn {
+                min-height: 40px;
+                border-radius: 3px;
+            }
+
+            .modal-confirm .close {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+            }
+
+            .modal-confirm .modal-footer {
+                border: none;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 13px;
+            }
+
+            .modal-confirm .icon-box {
+                color: #fff;
+                position: absolute;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                top: -70px;
+                width: 95px;
+                height: 95px;
+                border-radius: 50%;
+                z-index: 9;
+                background: #82ce34;
+                padding: 15px;
+                text-align: center;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+            }
+
+                .modal-confirm .icon-box i {
+                    font-size: 58px;
+                    position: relative;
+                    top: 3px;
+                }
+
+            .modal-confirm.modal-dialog {
+                margin-top: 80px;
+            }
+
+            .modal-confirm .btn {
+                color: #fff;
+                border-radius: 4px;
+                background: #82ce34;
+                text-decoration: none;
+                transition: all 0.4s;
+                line-height: normal;
+                border: none;
+            }
+
+                .modal-confirm .btn:hover,
+                .modal-confirm .btn:focus {
+                    background: #6fb32b;
+                    outline: none;
+                }
+
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>*@
+
+    <link href="/b001/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/b001/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/bootsnav.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/b001/css/owl.carousel.css">
+    <link rel="shortcut icon" href="/images/@ViewBag.Seo.icon">
+    <link rel="apple-touch-icon" href="/images/@ViewBag.Seo.icon">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/@ViewBag.Seo.icon">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/@ViewBag.Seo.icon">
+</head>
+<body>
+   
+
+
+
+
+
+    <!-- =====  LODER  ===== -->
+    <div class="loder"></div>
+    <div class="wrapper">
+
+        <!-- =====  HEADER START  ===== -->
+        <header id="header">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+
+                <div class="container">
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav">
+                        <ul id="cart-dropdown">
+                            <li class="dropdown">
+                                <a asp-action="SepetListele" asp-controller="Sepet" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-bag"></i> <span class="badge">@ViewBag.Adet</span> </a>
+                                @*<ul class="dropdown-menu cart-list">
+                                        <li>
+                                            <a href="#" class="photo"><img src="/b001/images/product/product1.jpg" class="cart-thumb" alt=""></a>
+                                            <h6><a href="#">Lorem ipsum dolor nusquam at.</a></h6>
+                                            <p>2x - <span class="price">$99.00</span></p>
+                                        </li>
+                                        <li class="total"> <span class="pull-right"><strong>Total</strong>: $322.00</span> <a href="#" class="btn btn-default btn-cart">Cart</a> </li>
+                                    </ul>*@
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- End Atribute Navigation -->
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i> </button>
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home"> <img src="/b001/images/logo-white.png" class="logo logo-display" alt=""> <img src="/b001/images/logo-black.png" class="logo logo-scrolled" alt=""> </a>
+                    </div>
+                    <!-- End Header Navigation -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li class="active"><a asp-action="Index" asp-controller="Home">Home</a></li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">Ürünler</a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var ust in @ViewBag.UstKategori)
+                                    {
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown">@ust.Ad</a>
+                                            <ul class="dropdown-menu">
+
+                                                @foreach (var alt in @ViewBag.AltKategori)
+                                                {
+                                                    @if (alt.KategoriOneId == ust.ID)
+                                                    {
+                                                        <li> <a asp-action="UrunListele" asp-controller="Urun" asp-route-id="@alt.ID">@alt.Ad</a></li>
+                                                    }
+
+                                                }
+
+                                            </ul>
+                                        </li>
+                                    }
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- Start Side Menu -->
+                <!-- End Side Menu -->
+            </nav>
+            <!-- End Navigation -->
+        </header>
+        <!-- =====  HEADER END  ===== -->
+
+        @RenderBody()
+
+        <!-- =====  FOOTER START  ===== -->
+        <div class="footer mt_80 ptb_80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-block">
+                        <div class="content_footercms_right">
+                            <div class="footer-contact">
+                                <h6 class="footer-title ptb_20">Adres</h6>
+                                <ul>
+                                    <li>@ViewBag.Iletisim.Adres</li>
+                                  
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footer-block">
+                        <h6 class="footer-title ptb_20">Telefon</h6>
+                        <ul>
+                            <li><a href="#">@ViewBag.Iletisim.Tel1</a></li>
+                            <li><a href="#">@ViewBag.Iletisim.Tel2</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-block">
+                        <h6 class="footer-title ptb_20">Mail</h6>
+                        <ul>
+                            <li><a href="contact.html">@ViewBag.Iletisim.Email1</a></li>
+                            <li><a href="#">@ViewBag.Iletisim.Email2</a></li>
+                          
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-block">
+                        <h6 class="footer-title ptb_20">Sosyal Ağlar</h6>
+                        <div class="social_icon">
+                         
+
+                                <ul>
+                                    <li><a href="@ViewBag.Iletisim.Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="@ViewBag.Iletisim.Youtube"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a href="@ViewBag.Iletisim.Instagram"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="@ViewBag.Iletisim.Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    
+                                </ul>
+                        </div>
+                        
+                    </div>
+                    @*<div class="col-md-3">
+                        <h6 class="ptb_20">SIGN UP OUR NEWSLETTER</h6>
+                        <p class="mt_10 mb_20">Be sure to follow our blog and sign up for all of our mailing updates!</p>
+                        <div class="form-group">
+                            <input class="mb_20" type="text" placeholder="Enter Your Email Address">
+                            <button class="btn">Subscribe</button>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+     
+        <!-- =====  FOOTER END  ===== -->
+    </div>
+    <a id="scrollup">Scroll</a>
+    <script src="/b001/js/jQuery_v3.1.1.min.js"></script>
+    <script src="/b001/js/owl.carousel.min.js"></script>
+    <script src="/b001/js/bootsnav.js"></script>
+    <script src="/b001/js/bootstrap.min.js"></script>
+    <script src="/b001/js/jquery.magnific-popup.js"></script>
+    <script src="/b001/js/jquery.firstVisitPopup.js"></script>
+    <script src="/b001/js/custom.js"></script>
+
+    <script>
+        function sortByName(direction) {
+            var mylist = $('.products');
+            var listitems = mylist.children('.product').get();
+            listitems.sort(function (a, b) {
+                var compA = $(a).find('.name').text().toUpperCase();
+                var compB = $(b).find('.name').text().toUpperCase();
+                return getOrderDirection(compA, compB, direction);
+            });
+            $.each(listitems, function (idx, itm) { mylist.append(itm); });
+        }
+
+        function sortByPrice(direction) {
+            var mylist = $('.products');
+            var listitems = mylist.children('.product').get();
+            listitems.sort(function (a, b) {
+                var valueA = parseFloat($(a).data('price'));
+                var valueB = parseFloat($(b).data('price'));
+                return getOrderDirection(valueA, valueB, direction);
+            });
+            $.each(listitems, function (idx, itm) { mylist.append(itm); });
+        }
+
+        function getOrderDirection(compA, compB, direction) {
+            if (direction == 0) {
+                return (compA < compB) ? 1 : (compA > compB) ? -1 : 0;
+            }
+            else {
+                return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            }
+
+        }
+    </script>
+
+    <script>
+
+        function fireSweetAlert() {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+        }
+
+        function Eklendi() {
+            alert("Ürün Sepete Eklendi");
+        }
+
+        function Silindi() {
+            alert("Ürün Sepetten Silindi");
+        }
+
+    </script>
+</body>
+</html>
